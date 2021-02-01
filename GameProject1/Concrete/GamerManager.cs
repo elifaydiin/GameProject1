@@ -6,13 +6,12 @@ namespace GameProject1
 {
     class GamerManager : IGamerService
     {
-        private ValidateManager validateManager;
+       IValidateService _validateService;
 
-        public GamerManager(ValidateManager validateManager)
+        public GamerManager(IValidateService validateService)
         {
-            this.validateManager = validateManager;
+            _validateService = validateService;
         }
-
         public void Delete(Gamer gamer)
         {
             Console.WriteLine(gamer.FirstName+""+gamer.LastName+" silindi.");
@@ -20,7 +19,14 @@ namespace GameProject1
 
         public void Save(Gamer gamer)
         {
-            Console.WriteLine(gamer.FirstName + " " + gamer.LastName + " kayit edildi");
+            if(_validateService.CheckGamer(gamer)==true)
+            {
+                Console.WriteLine("Kayıt oldu");
+            }
+            else
+            {
+                Console.WriteLine("doğrulama başarısız");
+            }
         }
 
         public void Update(Gamer gamer)

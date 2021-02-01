@@ -15,7 +15,7 @@ namespace GameProject1
             }
             else
             {
-                throw new Exception("Doğrulama yapılamadı");
+                return false;
             }
         }
     }

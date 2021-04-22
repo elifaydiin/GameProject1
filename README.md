@@ -1,4 +1,4 @@
-# GameProject1
+# Game Project
 Engin Demiroğ Yazılım Geliştirici Yetiştirme Kampı 
 
 
